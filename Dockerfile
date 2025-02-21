@@ -14,4 +14,4 @@ EXPOSE 11211
 
 USER memcache
 # Start Memcached
-CMD ["memcached", "-p 11211", "-u memcache", "-vv"]
+CMD ["memcached", "-u memcache", "-vv"]
