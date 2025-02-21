@@ -1,6 +1,6 @@
 # Use the official Memcached image as a base
 FROM memcached:latest
-
+USER root
 # Set environment variables to prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -12,5 +12,6 @@ RUN apt-get update && \
 # Expose Memcached default port
 EXPOSE 11211
 
+USER memcache
 # Start Memcached
-CMD ["memcached", "-m", "64", "-o", "modern"]
+CMD ["memcached", "-p 11211", "-u memcache", "-vv"]
